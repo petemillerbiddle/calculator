@@ -66,3 +66,12 @@ function calculate() {
     firstValue = answer; 
     currentOperator = "";
 }
+
+//TODO
+//Add dec pt functionality
+//Add Clear functionality
+//Add Back functionality
+//Prevent consecutive operators
+//Prevent multiple dec pts
+//Prevent /0
+//Check for bugs, edge cases
