@@ -25,6 +25,7 @@ let displayValue = "";
 let firstValue;
 let secondValue;
 let currentOperator;
+let answer;
 
 const display = document.querySelector('#display');
 display.textContent = displayValue;
@@ -40,20 +41,28 @@ digitButtons.forEach((button) => {
 const operateButtons = document.querySelectorAll('.operate-btn');
 operateButtons.forEach((button) => {
     button.addEventListener('click', () => {
+        if (currentOperator) calculate();
         firstValue = displayValue;
         displayValue = "";
         currentOperator = button.id;
-        
     });
 });
 
 const equalsButton = document.querySelector('#equals');
 equalsButton.addEventListener('click', () => {
-    secondValue = displayValue;
-    //'* 1' below converts string to number
-    updateDisplay(operate(currentOperator,firstValue * 1, secondValue * 1)); 
+    calculate();
 });
 
 function updateDisplay(value) {
     display.textContent = value;
+}
+
+function calculate() {
+    secondValue = displayValue;
+    //'* 1' below converts string to number
+    answer = operate(currentOperator,firstValue * 1, secondValue * 1);
+    updateDisplay(answer);
+    displayValue = answer;
+    firstValue = answer; 
+    currentOperator = "";
 }
