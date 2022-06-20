@@ -48,6 +48,7 @@ operateButtons.forEach((button) => {
     });
 });
 
+//TODO add Clear and Back buttons here, just call differenct fxns with IDs
 const equalsButton = document.querySelector('#equals');
 equalsButton.addEventListener('click', () => {
     calculate();
