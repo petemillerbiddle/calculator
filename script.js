@@ -21,7 +21,7 @@ function operate(operator, a, b) {
     else if (operator == '/') return divide(a, b);
 }
 
-let displayValue = 15;
+let displayValue = "";
 const display = document.querySelector('#display');
 display.textContent = displayValue;
 
@@ -36,7 +36,7 @@ digitButtons.forEach((button) => {
 function updateDisplay(digit) {
     //TODO
     //update displayValue with button pressed
-    //update display with new displayValue   
+    //update display with new displayValue  
     displayValue += digit;
     display.textContent = displayValue;
 }
