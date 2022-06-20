@@ -28,15 +28,12 @@ display.textContent = displayValue;
 const digitButtons = document.querySelectorAll('.digit-btn');
 digitButtons.forEach((button) => {
     button.addEventListener('click', () => {
-        updateDisplay(button.id);
+        displayValue += button.id;
+        updateDisplay(displayValue);
     });
 });
 
 
-function updateDisplay(digit) {
-    //TODO
-    //update displayValue with button pressed
-    //update display with new displayValue  
-    displayValue += digit;
-    display.textContent = displayValue;
+function updateDisplay(value) {
+    display.textContent = value;
 }
