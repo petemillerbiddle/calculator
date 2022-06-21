@@ -42,7 +42,7 @@ digitButtons.forEach((button) => {
 const operateButtons = document.querySelectorAll('.operate-btn');
 operateButtons.forEach((button) => {
     button.addEventListener('click', () => {
-        if (currentOperator) calculate();
+        if (currentOperator) equals();
         firstValue = displayValue;
         displayValue = "";
         currentOperator = button.id;
@@ -50,16 +50,29 @@ operateButtons.forEach((button) => {
 });
 
 //TODO add Clear and Back buttons here, just call differenct fxns with IDs
-const equalsButton = document.querySelector('#equals');
-equalsButton.addEventListener('click', () => {
-    calculate();
+const fxnButtons = document.querySelectorAll('.fxn-buttons');
+fxnButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        if (button.id == "clear") clear();
+        else if (button.id == "equals") equals();
+        else if (button.id == "back") back();
+    });
 });
 
 function updateDisplay(value) {
     display.textContent = value;
 }
 
-function calculate() {
+function clear() {
+    displayValue = "";
+    firstValue = "";
+    secondValue = "";
+    currentOperator = "";
+    answer = "";
+    updateDisplay(displayValue);
+}
+
+function equals() {
     secondValue = displayValue;
     //'* 1' below converts string to number
     answer = operate(currentOperator,firstValue * 1, secondValue * 1);
@@ -69,8 +82,15 @@ function calculate() {
     currentOperator = "";
 }
 
+//TODO finish
+function back() {
+    console.log("before back(): " + displayValue);
+    displayValue = displayValue.slice(displayValue.length);
+    console.log("after back(): " + displayValue);
+    updateDisplay(displayValue);
+};
+
 //TODO
-//Add dec pt functionality
 //Add Clear functionality
 //Add Back functionality
 //Prevent consecutive operators
