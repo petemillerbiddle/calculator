@@ -33,6 +33,7 @@ display.textContent = displayValue;
 const digitButtons = document.querySelectorAll('.digit-btn');
 digitButtons.forEach((button) => {
     button.addEventListener('click', () => {
+        if (button.id == "." && displayValue.includes(".")) return;
         displayValue += button.id;
         updateDisplay(displayValue);
     });
