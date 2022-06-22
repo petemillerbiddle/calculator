@@ -98,5 +98,6 @@ function back() {
 };
 
 //TODO
-//Prevent /0
+//Prevent /0 (seems to handle automatically)
 //Check for bugs, edge cases
+//Clean up code
