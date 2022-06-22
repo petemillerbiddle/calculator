@@ -45,14 +45,14 @@ digitButtons.forEach((button) => {
 const operateButtons = document.querySelectorAll('.operate-btn');
 operateButtons.forEach((button) => {
     button.addEventListener('click', () => {
-        if (currentOperator) equals();
+        if (lastButton == "operator"); //Do nothing
+        else if (currentOperator) equals();
         firstValue = displayValue;
         currentOperator = button.id;
         lastButton = "operator"
     });
 });
 
-//TODO add Clear and Back buttons here, just call differenct fxns with IDs
 const fxnButtons = document.querySelectorAll('.fxn-buttons');
 fxnButtons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -83,9 +83,9 @@ function equals() {
     displayValue = answer.toString();
     firstValue = answer; 
     currentOperator = "";
+    lastButton = "equals";
 }
 
-//TODO fix for back on operators
 function back() {
     if (lastButton == "digit") {
         displayValue = displayValue.slice(0, -1);
@@ -93,14 +93,10 @@ function back() {
     }
     else if (lastButton == "operator") {
         currentOperator = "";
-    }
-    
+    } 
+    else if (lastButton == "equals") clear();
 };
 
 //TODO
-//Add Clear functionality
-//Add Back functionality
-//Prevent consecutive operators
-//Prevent multiple dec pts
 //Prevent /0
 //Check for bugs, edge cases
