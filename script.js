@@ -26,6 +26,7 @@ let firstValue;
 let secondValue;
 let currentOperator;
 let answer;
+let lastButton;
 
 const display = document.querySelector('#display');
 display.textContent = displayValue;
@@ -34,8 +35,10 @@ const digitButtons = document.querySelectorAll('.digit-btn');
 digitButtons.forEach((button) => {
     button.addEventListener('click', () => {
         if (button.id == "." && displayValue.includes(".")) return;
+        if (lastButton == "operator") displayValue = "";
         displayValue += button.id;
         updateDisplay(displayValue);
+        lastButton = "digit";
     });
 });
 
@@ -44,8 +47,8 @@ operateButtons.forEach((button) => {
     button.addEventListener('click', () => {
         if (currentOperator) equals();
         firstValue = displayValue;
-        displayValue = "";
         currentOperator = button.id;
+        lastButton = "operator"
     });
 });
 
@@ -77,17 +80,21 @@ function equals() {
     //'* 1' below converts string to number
     answer = operate(currentOperator,firstValue * 1, secondValue * 1);
     updateDisplay(answer);
-    displayValue = answer;
+    displayValue = answer.toString();
     firstValue = answer; 
     currentOperator = "";
 }
 
-//TODO finish
+//TODO fix for back on operators
 function back() {
-    console.log("before back(): " + displayValue);
-    displayValue = displayValue.slice(displayValue.length);
-    console.log("after back(): " + displayValue);
-    updateDisplay(displayValue);
+    if (lastButton == "digit") {
+        displayValue = displayValue.slice(0, -1);
+        updateDisplay(displayValue);
+    }
+    else if (lastButton == "operator") {
+        currentOperator = "";
+    }
+    
 };
 
 //TODO
