@@ -18,6 +18,20 @@
 .operate-btn,
 .digit-btn {
     flex: 1;
+    margin: 2px;
+}
+
+.digit-btn {
+    background-color: lightblue;
+}
+
+.fxn-buttons,
+.operate-btn {
+    background-color: lightcoral;
+}
+
+.hovered {
+    background-color: lightgreen;
 }
 
 #zero {

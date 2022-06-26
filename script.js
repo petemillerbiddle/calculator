@@ -40,6 +40,12 @@ digitButtons.forEach((button) => {
         updateDisplay(displayValue);
         lastButton = "digit";
     });
+    button.addEventListener('mouseenter', function (e) {
+        e.target.classList.add('hovered');
+    });
+    button.addEventListener('mouseleave', function (e) {
+        e.target.classList.remove('hovered');
+    });
 });
 
 const operateButtons = document.querySelectorAll('.operate-btn');
@@ -51,6 +57,12 @@ operateButtons.forEach((button) => {
         currentOperator = button.id;
         lastButton = "operator"
     });
+    button.addEventListener('mouseenter', function (e) {
+        e.target.classList.add('hovered');
+    });
+    button.addEventListener('mouseleave', function (e) {
+        e.target.classList.remove('hovered');
+    });
 });
 
 const fxnButtons = document.querySelectorAll('.fxn-buttons');
@@ -59,6 +71,12 @@ fxnButtons.forEach((button) => {
         if (button.id == "clear") clear();
         else if (button.id == "equals") equals();
         else if (button.id == "back") back();
+    });
+    button.addEventListener('mouseenter', function (e) {
+        e.target.classList.add('hovered');
+    });
+    button.addEventListener('mouseleave', function (e) {
+        e.target.classList.remove('hovered');
     });
 });
 
