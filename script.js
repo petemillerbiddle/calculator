@@ -31,11 +31,13 @@ let lastButton;
 const display = document.querySelector('#display');
 display.textContent = displayValue;
 
+//TODO clear between equals and digit
 const digitButtons = document.querySelectorAll('.digit-btn');
 digitButtons.forEach((button) => {
     button.addEventListener('click', () => {
         if (button.id == "." && displayValue.includes(".")) return;
         if (lastButton == "operator") displayValue = "";
+        else if (lastButton == "equals") clear();
         displayValue += button.id;
         updateDisplay(displayValue);
         lastButton = "digit";
