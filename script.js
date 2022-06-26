@@ -45,8 +45,8 @@ digitButtons.forEach((button) => {
 const operateButtons = document.querySelectorAll('.operate-btn');
 operateButtons.forEach((button) => {
     button.addEventListener('click', () => {
-        if (lastButton == "operator"); //Do nothing
-        else if (currentOperator) equals();
+        //if consecutive operators, use most recent
+        if (lastButton != "operator" && currentOperator) equals(); 
         firstValue = displayValue;
         currentOperator = button.id;
         lastButton = "operator"

@@ -1,5 +1,25 @@
+#calculator {
+    display: flex;
+    flex-direction: column;
+}
+
 #display {
     height: 20px;
     width: 200px;
     border: solid;
+}
+
+.row {
+    display: flex;
+    width: 200px;
+}
+
+.fxn-buttons,
+.operate-btn,
+.digit-btn {
+    flex: 1;
+}
+
+#zero {
+    flex: 2.5;
 }
